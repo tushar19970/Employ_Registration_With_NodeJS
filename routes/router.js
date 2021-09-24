@@ -95,7 +95,7 @@ router.get('/search',(req,res)=>{
     var search= req.query.search_data
     knex.select('First_Name','Last_Name','Id').from('details').where('First_Name','like',`%${search}%`)
     .orWhere('Last_Name', 'like', `%${search}%`)
-    .orWhere('Last_Name', 'like', `%${search}%`).then((data) => {
+    .orWhere('Id', 'like', `%${search}%`).then((data) => {
         res.send(data)
     }).catch((err) => {
         res.send(err)
